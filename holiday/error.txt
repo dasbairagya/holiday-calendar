@@ -1,0 +1,791 @@
+
+Test Results
+Help
+
+Run Tests
+
+Submit
+Command: cd /projects/challenge && rm -rf unit.xml; python3 manage.py makemigrations && python3 manage.py migrate --run-syncdb && python3 manage.py test --keepdb
+Migrations for 'holiday':
+
+  holiday/migrations/0001_initial.py
+
+    - Create model Admin
+
+    - Create model Cities
+
+    - Create model Holiday
+
+Operations to perform:
+
+  Synchronize unmigrated apps: messages, rest_framework, staticfiles
+
+  Apply all migrations: admin, auth, contenttypes, holiday, sessions
+
+Synchronizing apps without migrations:
+
+  Creating tables...
+
+    Running deferred SQL...
+
+Running migrations:
+
+  Applying contenttypes.0001_initial... OK
+
+  Applying auth.0001_initial... OK
+
+  Applying admin.0001_initial... OK
+
+  Applying admin.0002_logentry_remove_auto_add... OK
+
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+
+  Applying contenttypes.0002_remove_content_type_name... OK
+
+  Applying auth.0002_alter_permission_name_max_length... OK
+
+  Applying auth.0003_alter_user_email_max_length... OK
+
+  Applying auth.0004_alter_user_username_opts... OK
+
+  Applying auth.0005_alter_user_last_login_null... OK
+
+  Applying auth.0006_require_contenttypes_0002... OK
+
+  Applying auth.0007_alter_validators_add_error_messages... OK
+
+  Applying auth.0008_alter_user_username_max_length... OK
+
+  Applying auth.0009_alter_user_last_name_max_length... OK
+
+  Applying auth.0010_alter_group_name_max_length... OK
+
+  Applying auth.0011_update_proxy_permissions... OK
+
+  Applying holiday.0001_initial... OK
+
+  Applying sessions.0001_initial... OK
+
+System check identified no issues (0 silenced).
+
+Using existing test database for alias 'default'...
+
+Running tests...
+
+----------------------------------------------------------------------
+
+..FFFFFFEEEFFFFFF
+
+======================================================================
+
+ERROR [0.017s]: test_upload_invalid (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 137, in test_upload_invalid
+
+    response = self.client.post('/upload/', {'file':  fp})
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 543, in post
+
+    response = super().post(path, data=data, content_type=content_type, secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 357, in post
+
+    secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 422, in generic
+
+    return self.request(**r)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 503, in request
+
+    raise exc_value
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+
+    response = get_response(request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 115, in _get_response
+
+    response = self.process_exception_by_middleware(e, request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 113, in _get_response
+
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+
+    return view_func(*args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/generic/base.py", line 71, in view
+
+    return self.dispatch(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 505, in dispatch
+
+    response = self.handle_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 465, in handle_exception
+
+    self.raise_uncaught_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+
+    raise exc
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 502, in dispatch
+
+    response = handler(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 190, in post
+
+    return self.create(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/mixins.py", line 19, in create
+
+    self.perform_create(serializer)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/mixins.py", line 24, in perform_create
+
+    serializer.save()
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/serializers.py", line 213, in save
+
+    self.instance = self.create(validated_data)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/serializers.py", line 168, in create
+
+    raise NotImplementedError('`create()` must be implemented.')
+
+NotImplementedError: `create()` must be implemented.
+
+======================================================================
+
+ERROR [0.014s]: test_upload_invalid_with_cities (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 145, in test_upload_invalid_with_cities
+
+    response = self.client.post('/upload/', {'file':  fp})
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 543, in post
+
+    response = super().post(path, data=data, content_type=content_type, secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 357, in post
+
+    secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 422, in generic
+
+    return self.request(**r)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 503, in request
+
+    raise exc_value
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+
+    response = get_response(request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 115, in _get_response
+
+    response = self.process_exception_by_middleware(e, request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 113, in _get_response
+
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+
+    return view_func(*args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/generic/base.py", line 71, in view
+
+    return self.dispatch(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 505, in dispatch
+
+    response = self.handle_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 465, in handle_exception
+
+    self.raise_uncaught_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+
+    raise exc
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 502, in dispatch
+
+    response = handler(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 190, in post
+
+    return self.create(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/mixins.py", line 19, in create
+
+    self.perform_create(serializer)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/mixins.py", line 24, in perform_create
+
+    serializer.save()
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/serializers.py", line 213, in save
+
+    self.instance = self.create(validated_data)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/serializers.py", line 168, in create
+
+    raise NotImplementedError('`create()` must be implemented.')
+
+NotImplementedError: `create()` must be implemented.
+
+======================================================================
+
+ERROR [0.014s]: test_valid (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 129, in test_valid
+
+    response = self.client.post('/upload/', {'file':  fp})
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 543, in post
+
+    response = super().post(path, data=data, content_type=content_type, secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 357, in post
+
+    secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 422, in generic
+
+    return self.request(**r)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 503, in request
+
+    raise exc_value
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+
+    response = get_response(request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 115, in _get_response
+
+    response = self.process_exception_by_middleware(e, request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 113, in _get_response
+
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+
+    return view_func(*args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/generic/base.py", line 71, in view
+
+    return self.dispatch(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 505, in dispatch
+
+    response = self.handle_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 465, in handle_exception
+
+    self.raise_uncaught_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+
+    raise exc
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 502, in dispatch
+
+    response = handler(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 190, in post
+
+    return self.create(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/mixins.py", line 19, in create
+
+    self.perform_create(serializer)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/mixins.py", line 24, in perform_create
+
+    serializer.save()
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/serializers.py", line 213, in save
+
+    self.instance = self.create(validated_data)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/serializers.py", line 168, in create
+
+    raise NotImplementedError('`create()` must be implemented.')
+
+NotImplementedError: `create()` must be implemented.
+
+======================================================================
+
+FAIL [0.023s]: test_create_page (holiday.tests.PageHitTests)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 24, in test_create_page
+
+    response_mon = self.client.get('/monthly/')
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 535, in get
+
+    response = super().get(path, data=data, secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 347, in get
+
+    **extra,
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 422, in generic
+
+    return self.request(**r)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 503, in request
+
+    raise exc_value
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+
+    response = get_response(request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 115, in _get_response
+
+    response = self.process_exception_by_middleware(e, request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 113, in _get_response
+
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+
+    return view_func(*args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/generic/base.py", line 71, in view
+
+    return self.dispatch(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 505, in dispatch
+
+    response = self.handle_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 465, in handle_exception
+
+    self.raise_uncaught_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+
+    raise exc
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 502, in dispatch
+
+    response = handler(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 208, in get
+
+    return self.retrieve(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/mixins.py", line 54, in retrieve
+
+    instance = self.get_object()
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 83, in get_object
+
+    queryset = self.filter_queryset(self.get_queryset())
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 66, in get_queryset
+
+    % self.__class__.__name__
+
+AssertionError: 'MonthlyHolidayView' should either include a `queryset` attribute, or override the `get_queryset()` method.
+
+======================================================================
+
+FAIL [0.002s]: test_holidays_page (holiday.tests.PageHitTests)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 15, in test_holidays_page
+
+    self.assertEquals(response.status_code, 200)
+
+AssertionError: 404 != 200
+
+======================================================================
+
+FAIL [0.004s]: test_admin_login_view (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 98, in test_admin_login_view
+
+    self.assertEqual(response.status_code, 200)
+
+AssertionError: 405 != 200
+
+======================================================================
+
+FAIL [0.013s]: test_all_city_names (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 152, in test_all_city_names
+
+    response = self.client.get('/cities/')
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 535, in get
+
+    response = super().get(path, data=data, secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 347, in get
+
+    **extra,
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 422, in generic
+
+    return self.request(**r)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 503, in request
+
+    raise exc_value
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+
+    response = get_response(request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 115, in _get_response
+
+    response = self.process_exception_by_middleware(e, request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 113, in _get_response
+
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+
+    return view_func(*args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/generic/base.py", line 71, in view
+
+    return self.dispatch(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 505, in dispatch
+
+    response = self.handle_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 465, in handle_exception
+
+    self.raise_uncaught_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+
+    raise exc
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 502, in dispatch
+
+    response = handler(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 199, in get
+
+    return self.list(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/mixins.py", line 38, in list
+
+    queryset = self.filter_queryset(self.get_queryset())
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 66, in get_queryset
+
+    % self.__class__.__name__
+
+AssertionError: 'CityListView' should either include a `queryset` attribute, or override the `get_queryset()` method.
+
+======================================================================
+
+FAIL [0.013s]: test_del_holiday_name (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 158, in test_del_holiday_name
+
+    response = self.client.delete('/deleteholidayinfo/12/')
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 582, in delete
+
+    response = super().delete(path, data=data, content_type=content_type, secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 396, in delete
+
+    secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 422, in generic
+
+    return self.request(**r)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 503, in request
+
+    raise exc_value
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+
+    response = get_response(request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 115, in _get_response
+
+    response = self.process_exception_by_middleware(e, request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 113, in _get_response
+
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+
+    return view_func(*args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/generic/base.py", line 71, in view
+
+    return self.dispatch(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 505, in dispatch
+
+    response = self.handle_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 465, in handle_exception
+
+    self.raise_uncaught_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+
+    raise exc
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 502, in dispatch
+
+    response = handler(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 217, in delete
+
+    return self.destroy(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/mixins.py", line 90, in destroy
+
+    instance = self.get_object()
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 83, in get_object
+
+    queryset = self.filter_queryset(self.get_queryset())
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 66, in get_queryset
+
+    % self.__class__.__name__
+
+AssertionError: 'HolidayDeleteView' should either include a `queryset` attribute, or override the `get_queryset()` method.
+
+======================================================================
+
+FAIL [0.013s]: test_update (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 163, in test_update
+
+    response = self.client.put('/updateholidayinfo/13/', req_data, content_type='application/json')
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 566, in put
+
+    response = super().put(path, data=data, content_type=content_type, secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 382, in put
+
+    secure=secure, **extra)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 422, in generic
+
+    return self.request(**r)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/client.py", line 503, in request
+
+    raise exc_value
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+
+    response = get_response(request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 115, in _get_response
+
+    response = self.process_exception_by_middleware(e, request)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 113, in _get_response
+
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+
+    return view_func(*args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/views/generic/base.py", line 71, in view
+
+    return self.dispatch(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 505, in dispatch
+
+    response = self.handle_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 465, in handle_exception
+
+    self.raise_uncaught_exception(exc)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+
+    raise exc
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/views.py", line 502, in dispatch
+
+    response = handler(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 255, in put
+
+    return self.update(request, *args, **kwargs)
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/mixins.py", line 65, in update
+
+    instance = self.get_object()
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 83, in get_object
+
+    queryset = self.filter_queryset(self.get_queryset())
+
+  File "/home/user/.local/lib/python3.5/site-packages/rest_framework/generics.py", line 66, in get_queryset
+
+    % self.__class__.__name__
+
+AssertionError: 'HolidayEditView' should either include a `queryset` attribute, or override the `get_queryset()` method.
+
+======================================================================
+
+FAIL [0.004s]: test_view_create (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 115, in test_view_create
+
+    self.assertEqual(response.status_code, 200)
+
+AssertionError: 400 != 200
+
+======================================================================
+
+FAIL [0.004s]: test_view_create_with_past_date (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 125, in test_view_create_with_past_date
+
+    self.assertJSONEqual(response_content, '{"date":["Date cannot be in the past"]}')
+
+  File "/home/user/.local/lib/python3.5/site-packages/django/test/testcases.py", line 817, in assertJSONEqual
+
+    self.assertEqual(data, expected_data, msg=msg)
+
+AssertionError: {'holidayname': ['This field is required.'][37 chars]d.']} != {'date': ['Date cannot be in the past']}
+
++ {'date': ['Date cannot be in the past']}
+
+- {'cityname': ['This field is required.'],
+
+-  'holidayname': ['This field is required.']}
+
+======================================================================
+
+FAIL [0.003s]: test_view_daily (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 108, in test_view_daily
+
+    self.assertEqual(response.status_code, 200)
+
+AssertionError: 405 != 200
+
+======================================================================
+
+FAIL [0.003s]: test_view_list_all_holidays (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 71, in test_view_list_all_holidays
+
+    self.assertEqual(response.status_code, 200)
+
+AssertionError: 404 != 200
+
+======================================================================
+
+FAIL [0.003s]: test_view_monthly (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 83, in test_view_monthly
+
+    self.assertEqual(response.status_code, 200)
+
+AssertionError: 405 != 200
+
+======================================================================
+
+FAIL [0.003s]: test_view_monthly_with_no_result (holiday.tests.ViewsTest)
+
+----------------------------------------------------------------------
+
+Traceback (most recent call last):
+
+  File "/projects/challenge/holiday/tests.py", line 91, in test_view_monthly_with_no_result
+
+    self.assertEqual(response.status_code, 200)
+
+AssertionError: 405 != 200
+
+----------------------------------------------------------------------
+
+Ran 17 tests in 0.143s
+
+FAILED (failures=12, errors=3)
+
+Generating XML reports...
+
+Preserving test database for alias 'default'...
