@@ -13,7 +13,7 @@ urlpatterns = [
     path('upload/', views.UploadCreateView.as_view(), name='Upload'), #pass
     path('monthly/', views.MonthlyHolidayView.as_view(), name='Month'), #pass
     path('daily/', views.DailyHolidayView.as_view(), name='Daily'), #pass
-    path('updateholidayinfo/<int:pk>/', views.HolidayEditView.as_view(), name='Holiday-Edit'), #?
+    path('updateholidayinfo/<int:pk>/', views.HolidayEditView.as_view(), name='Holiday-Edit'), #pass
     path('deleteholidayinfo/<int:pk>/', views.HolidayDeleteView.as_view(), name='Holiday-Delete'),  #pass
     path('admin/login/', views.AdminLoginView.as_view(), name='Admin-Login'), #pass
 ]
