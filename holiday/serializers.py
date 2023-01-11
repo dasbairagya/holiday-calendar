@@ -8,7 +8,7 @@ from .models import Admin, Holiday, Cities
 class HolidaySerializer(serializers.ModelSerializer):
     # id = serializers.IntegerField(read_only=True)
     # city_name=serializers.CharField(max_length=50)
-    date = serializers.DateField(format="%Y/%m/%d")
+    # date = serializers.DateField(format="%Y-%m-%d")
     # holidayName=serializers.CharField(max_length=50)
 
     class Meta:

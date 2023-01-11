@@ -164,6 +164,7 @@ class ViewsTest(TestCase):
         req_data = {"city_name": "testupdate", "date": "29/11/2029", "holidayName": "testupdate"}
         response = self.client.put('/updateholidayinfo/13/', req_data, content_type='application/json')
         response_content = response.content.decode("utf-8")
+        # print(response_content)
         self.assertJSONEqual(response_content, {"status": 1})
         response = self.client.get('/holidays/all/')
         update_response = response.content.decode("utf-8")

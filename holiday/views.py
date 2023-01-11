@@ -46,9 +46,29 @@ class HolidayDeleteView(generics.DestroyAPIView):
 
 # Method to edit the holiday that is already been created
 # className ---> HolidayEditView
-class HolidayEditView(generics.RetrieveUpdateAPIView):
+class HolidayEditView(generics.UpdateAPIView):
     serializer_class = HolidaySerializer
     queryset = Holiday.objects.all()
+    lookup_field = 'pk'
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        data = request.data
+        # print('data---------------------> ', data)
+        formatedDate = dt.datetime.strptime(data["date"], "%d/%m/%Y").strftime('%Y-%m-%d') #very important to pass the last test case
+        data.update({"date": formatedDate})
+        # print('updated data---------------------> ', data)
+
+        # request = dict({"data": data})
+        # print('modified requst-------------->',request)
+        # if self.update(request, *args, **kwargs):
+
+        serializer = self.get_serializer(instance, data=data, partial=True)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response({'status': 1}, status=status.HTTP_200_OK)
+
+        return Response({'status': 0}, status=status.HTTP_400_BAD_REQUEST)
 
 
 # Method to upload a file in csv format conatining all the records that are to be entered in the database
